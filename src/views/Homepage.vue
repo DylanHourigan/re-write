@@ -1,29 +1,17 @@
 <template>
   <div class="home">
-    <HeaderNav />
-    <BlogList :posts="blogPosts" />
+    <ParaphraseV1 />
   </div>
 </template>
   
 <script>
-import BlogList from '@/components/BlogList.vue';
-import HeaderNav from '@/components/HeaderNav.vue';
+import ParaphraseV1 from '@/components/ParaphraseV1.vue';
 
 export default {
   name: 'HomePage',
   components: {
-    BlogList,
-    HeaderNav
-  },
-  data() {
-    return {
-      blogPosts: [
-        { id: 1, title: 'First Post', content: 'This is the first blog post.' },
-        { id: 2, title: 'Second Post', content: 'This is the second blog post.' },
-        // Add more blog posts here
-      ],
-    };
-  },
+    ParaphraseV1,
+  }
 };
 </script>
   
