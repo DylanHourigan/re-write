@@ -5,13 +5,13 @@
       <div class="text-white font-bold text-xl">
         <img src="../assets/logo.jpg" alt="Logo" class="h-20">
       </div>
-      <div class="text-4xl font-bold text-white">Re-Write</div>
+      <div class="text-4xl font-bold text-white pl-24 ml-12">Re-Write</div>
       <!-- Nav Bar -->
-      <nav class="hidden md:flex space-x-4">
-        <a href="#" class="text-white hover:text-gray-200">Home</a>
-        <a href="#" class="text-white hover:text-gray-200">About</a>
-        <a href="#" class="text-white hover:text-gray-200">Services</a>
-        <a href="#" class="text-white hover:text-gray-200">Contact</a>
+      <nav class="hidden md:flex space-x-4 right-0">
+        <router-link to="/" class="text-white hover:text-gray-200">Home</router-link>
+        <router-link to="/" class="text-white hover:text-gray-200">About</router-link>
+        <router-link to="/" class="text-white hover:text-gray-200">Services</router-link>
+        <router-link to="/login" class="text-white hover:text-gray-200">Log out</router-link>
       </nav>
 
       <!-- Mobile Menu Button (shown on small screens) -->

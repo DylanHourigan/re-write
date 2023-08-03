@@ -1,15 +1,22 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Homepage from '..views/Homepage.vue';
-
-Vue.use(Router);
+import { createRouter, createWebHistory } from 'vue-router';
+import HomePage from '../views/Homepage.vue';
+import loginPage from '../views/LoginPage.vue';
 
 const routes = [
     {
         path: '/',
-        name: 'Homepage',
-        component: Homepage,
-    }
+        redirect: '/login',
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: loginPage,
+    },
+    {
+        path: '/home',
+        name: 'HomePage',
+        component: HomePage
+    },
     // {
     //     path: '/about',
     //     name: 'About',
@@ -17,8 +24,8 @@ const routes = [
     // },
 ];
 
-const router = new Router({
-    mode: 'history',
+const router = createRouter({
+    history: createWebHistory(),
     base: process.env.BASE_URL,
     routes,
 });
