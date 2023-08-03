@@ -1,7 +1,6 @@
 export default {
-    state: {
-        userId: '',
-        userName: '',
-        email: '',
-        loggedIn: false
-    }};
+    userId: '',
+    userName: '',
+    email: localStorage.getItem('userEmail') || '',
+    loggedIn: localStorage.getItem('loggedIn') || false,
+};

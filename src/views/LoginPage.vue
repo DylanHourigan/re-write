@@ -39,8 +39,8 @@
     methods: {
       login() {
         if (this.email === 'user@example.com' && this.password === 'password') {
-        this.$store.commit('user/setLoggedIn', true);
-        this.$store.commit('user/setEmail', this.email);
+          this.$store.dispatch('user/setLoggedIn', true);
+          this.$store.dispatch('user/setEmail', this.email);
           this.$router.push('/home');
         } else {
           // Handle invalid login credentials here (optional)
