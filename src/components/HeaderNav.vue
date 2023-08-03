@@ -42,6 +42,7 @@ export default {
   methods: {
     handleLogout() {
       this.$store.dispatch('auth/logout');
+      this.$store.dispatch('user/setEmail', '');
     },
   },
 };
