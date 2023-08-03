@@ -39,7 +39,7 @@
     methods: {
       login() {
         if (this.email === 'user@example.com' && this.password === 'password') {
-          this.$store.dispatch('user/setLoggedIn', true);
+          this.$store.dispatch('auth/setLoggedIn', 'true');
           this.$store.dispatch('user/setEmail', this.email);
           this.$router.push('/home');
         } else {

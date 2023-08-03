@@ -14,7 +14,7 @@ export default {
   components: {
     ParaphraseV1,
     HeaderNav,
-  }
+  },
 };
 </script>
   

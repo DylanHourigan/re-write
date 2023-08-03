@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/Homepage.vue';
 import loginPage from '../views/LoginPage.vue';
+import store from '../store';
 
 const routes = [
     {
@@ -17,11 +18,6 @@ const routes = [
         name: 'HomePage',
         component: HomePage
     },
-    // {
-    //     path: '/about',
-    //     name: 'About',
-    //     component: () => import('../views/About.vue'),
-    // },
 ];
 
 const router = createRouter({
@@ -29,5 +25,22 @@ const router = createRouter({
     base: process.env.BASE_URL,
     routes,
 });
+
+router.beforeEach(async (to, from, next) => {
+    const publicPages = ['/login'];
+    const authRequired = !publicPages.includes(to.path);
+    store.dispatch('auth/fetchLoggedIn');
+    const auth = store.getters['auth/getLoggedIn'];
+
+    if (authRequired && auth === 'false') {
+        next('/login');
+    } else if (to.path === '/login' && auth === 'true'){
+        next('/home');
+    } 
+    else {
+        next();
+    }
+});
+
 
 export default router;

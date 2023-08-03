@@ -11,7 +11,7 @@
         <router-link to="/" class="text-white hover:text-gray-200">Home</router-link>
         <router-link to="/" class="text-white hover:text-gray-200">About</router-link>
         <router-link to="/" class="text-white hover:text-gray-200">Services</router-link>
-        <router-link to="/login" class="text-white hover:text-gray-200">Log out</router-link>
+        <router-link to="/login"  @click="handleLogout" class="text-white hover:text-gray-200">Log out</router-link>
       </nav>
 
       <!-- Mobile Menu Button (shown on small screens) -->
@@ -36,3 +36,13 @@
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  methods: {
+    handleLogout() {
+      this.$store.dispatch('auth/logout');
+    },
+  },
+};
+</script>
