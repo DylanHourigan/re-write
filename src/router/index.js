@@ -1,26 +1,46 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Homepage from '..views/Homepage.vue';
-
-Vue.use(Router);
+import { createRouter, createWebHistory } from 'vue-router';
+import HomePage from '../views/Homepage.vue';
+import loginPage from '../views/LoginPage.vue';
+import store from '../store';
 
 const routes = [
     {
         path: '/',
-        name: 'Homepage',
-        component: Homepage,
-    }
-    // {
-    //     path: '/about',
-    //     name: 'About',
-    //     component: () => import('../views/About.vue'),
-    // },
+        redirect: '/login',
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: loginPage,
+    },
+    {
+        path: '/home',
+        name: 'HomePage',
+        component: HomePage
+    },
 ];
 
-const router = new Router({
-    mode: 'history',
+const router = createRouter({
+    history: createWebHistory(),
     base: process.env.BASE_URL,
     routes,
 });
+
+router.beforeEach(async (to, from, next) => {
+    const publicPages = ['/login'];
+    const authRequired = !publicPages.includes(to.path);
+    store.dispatch('auth/fetchLoggedIn');
+    const auth = store.getters['auth/getLoggedIn'];
+
+    if (authRequired && auth === 'false') {
+        next('/login');
+    } else if (to.path === '/login' && auth === 'true'){
+        next('/home');
+    } 
+    else {
+        next();
+    }
+});
+
 
 export default router;

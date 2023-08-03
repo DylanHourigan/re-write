@@ -1,9 +1,9 @@
 <template>
     <div class="bg-gray-100 min-h-screen">
       <!-- Header Section -->
-      <header class="bg-blue-600 text-white">
+      <header class="bg-gray-800 py-4">
         <div class="container mx-auto py-4 px-8">
-          <h1 class="text-2xl font-bold">Paraphrasing Tool</h1>
+          <h1 class="text-white font-bold text-3xl">Re-Write</h1>
         </div>
       </header>
   
@@ -22,7 +22,6 @@
             </div>
             <button type="submit" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 focus:outline-none">Log in</button>
           </form>
-          <p class="mt-4 text-sm text-gray-600">Don't have an account? <a href="#" class="text-blue-600 hover:underline">Sign up</a></p>
         </div>
       </main>
     </div>
@@ -39,11 +38,10 @@
     },
     methods: {
       login() {
-        // Replace this with your actual login logic
-        // For this example, we'll simulate a successful login
         if (this.email === 'user@example.com' && this.password === 'password') {
-          // Redirect to the home page after successful login
-          this.$router.push('/');
+          this.$store.dispatch('auth/setLoggedIn', 'true');
+          this.$store.dispatch('user/setEmail', this.email);
+          this.$router.push('/home');
         } else {
           // Handle invalid login credentials here (optional)
           alert('Invalid login credentials. Please try again.');
