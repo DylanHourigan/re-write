@@ -9,6 +9,6 @@ const apiClient = axios.create({
 
 export default {
     paraphrase(data) {
-        return apiClient.post('/paraphrase', data);
+        return apiClient.post('/V1/paraphrase', data);
     }
 };
