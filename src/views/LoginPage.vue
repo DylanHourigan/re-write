@@ -28,6 +28,8 @@
   </template>
   
   <script>
+  import apiService from '@server/apiService';
+
   export default {
     name: 'LoginPage',
     data() {
@@ -38,7 +40,9 @@
     },
     methods: {
       login() {
-        if (this.email === 'user@example.com' && this.password === 'password') {
+        const response = apiService.login(this.email, this.password);
+        if (response) {
+          // Handle successful login here (optional)
           this.$store.dispatch('auth/setLoggedIn', 'true');
           this.$store.dispatch('user/setEmail', this.email);
           this.$router.push('/home');

@@ -1,5 +1,6 @@
 export default {
-    userId: '',
-    userName: '',
-    email: localStorage.getItem('userEmail') || '',
+    firstName: localStorage.getItem('firstName') || '',
+    lastName: localStorage.getItem('lastName') || '',
+    email: localStorage.getItem('email') || '',
+    accountType: localStorage.getItem('userAccountType') || '',
 };
