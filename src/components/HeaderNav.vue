@@ -43,6 +43,9 @@ export default {
     handleLogout() {
       this.$store.dispatch('auth/logout');
       this.$store.dispatch('user/setEmail', '');
+      this.$store.dispatch('user/setFirstName', '');
+      this.$store.dispatch('user/setLastName', '');
+      this.$store.dispatch('user/setAccountType', '');
     },
   },
 };
