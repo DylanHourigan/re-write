@@ -39,10 +39,13 @@
       };
     },
     methods: {
-      login() {
-        const response = apiService.login(this.email, this.password);
+      async login() {
+        const data = {
+          email: this.email,
+          password: this.password,
+        };
+        const response = await apiService.login(data);
         if (response) {
-          // Handle successful login here (optional)
           this.$store.dispatch('auth/setLoggedIn', 'true');
           this.$store.dispatch('user/setEmail', this.email);
           this.$router.push('/home');

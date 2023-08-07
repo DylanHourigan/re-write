@@ -1,4 +1,7 @@
 export const SET_EMAIL = 'setEmail';
+export const SET_FIRST_NAME = 'setFirstName';
+export const SET_LAST_NAME = 'setLastName';
+export const SET_ACCOUNT_TYPE = 'setAccountType';
 
 export default {
   [SET_EMAIL](state, email) {

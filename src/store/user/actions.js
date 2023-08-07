@@ -1,4 +1,4 @@
-import { SET_EMAIL, SET_FIRST_NAME, SET_LAST_NAME, SET_ACCOUNT_TYPE } from './mutation-types';
+import { SET_EMAIL, SET_FIRST_NAME, SET_LAST_NAME, SET_ACCOUNT_TYPE } from './mutations';
 
 export default {
   setEmail({ commit }, email) {
