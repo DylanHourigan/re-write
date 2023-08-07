@@ -28,6 +28,8 @@
   </template>
   
   <script>
+  import apiService from '@server/apiService';
+
   export default {
     name: 'LoginPage',
     data() {
@@ -37,10 +39,19 @@
       };
     },
     methods: {
-      login() {
-        if (this.email === 'user@example.com' && this.password === 'password') {
+      async login() {
+        const data = {
+          email: this.email,
+          password: this.password,
+        };
+        const response = await apiService.login(data);
+        if (response) {
+          console.log(response);
           this.$store.dispatch('auth/setLoggedIn', 'true');
-          this.$store.dispatch('user/setEmail', this.email);
+          this.$store.dispatch('user/setAccountType', response.accountType);
+          this.$store.dispatch('user/setFirstName', response.firstName);
+          this.$store.dispatch('user/setLastName', response.lastName);
+          this.$store.dispatch('user/setEmail', response.email);
           this.$router.push('/home');
         } else {
           // Handle invalid login credentials here (optional)
