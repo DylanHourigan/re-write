@@ -1,18 +1,18 @@
 <template>
   <div class="home">
     <HeaderNav />
-    <ParaphraseV1 />
+    <ParaphraseTextBox />
   </div>
 </template>
   
 <script>
 import HeaderNav from '@/components/HeaderNav.vue';
-import ParaphraseV1 from '@/components/ParaphraseV1.vue';
+import ParaphraseTextBox from '@/components/ParaphraseTextBox.vue';
 
 export default {
   name: 'HomePage',
   components: {
-    ParaphraseV1,
+    ParaphraseTextBox,
     HeaderNav,
   },
 };

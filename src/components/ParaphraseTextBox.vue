@@ -8,6 +8,12 @@
 
     <main class="container mx-auto py-8 px-8">
       <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+        <label for="modelSelect" class="block mb-2 text-sm">Select a Model:</label>
+        <select v-model="selectedModel" id="modelSelect" class="w-full p-2 border rounded-md mb-4">
+          <option v-for="model in models" :key="model.id" :value="model.id">
+            {{ model.name }}
+          </option>
+        </select>
         <h2 class="text-xl font-semibold mb-4">Enter Your Sentence:</h2>
         <textarea v-model="inputText" class="w-full h-40 p-4 border rounded-md resize-none"
           placeholder="Enter your sentence here..."></textarea>
@@ -32,18 +38,23 @@ export default {
     return {
       inputText: "",
       paraphrasedText: "",
+      selectedModel: 'rule-basedId',
+      models: [
+      { id: 'rule-basedId', name: 'Rule Based Model' },
+      { id: 'mlModelId', name: 'Machine Learning Model' },
+    ]
     };
   },
   methods: {
     async paraphrase() {
-        try {
-          const data = { input: this.inputText };
-          const response = await apiService.paraphrase(data);
-          this.paraphrasedText = response.data.paraphrase;
-        } catch (error) {
-          console.error(error);
-        }
+      try {
+        const data = { input: this.inputText };
+        const response = await apiService.paraphrase(data);
+        this.paraphrasedText = response.data.paraphrase;
+      } catch (error) {
+        console.error(error);
       }
-    },
+    }
+  },
 };
 </script>
