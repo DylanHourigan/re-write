@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-gray-800 py-4">
+  <header class="bg-gray-800 py-4 relative">
     <div class="container mx-auto grid grid-cols-3 items-center">
 
       <div class="text-white font-bold text-xl">
@@ -11,28 +11,30 @@
       </div>
 
       <div class="flex justify-end">
-        <nav v-if="loggedIn" class="hidden md:flex space-x-4">
+        <nav v-if="loggedIn && !menuOpen" class="hidden md:flex space-x-4">
           <router-link to="/" class="text-white hover:text-gray-200">Home</router-link>
           <router-link to="/" class="text-white hover:text-gray-200">About</router-link>
           <router-link to="/" class="text-white hover:text-gray-200">Services</router-link>
           <router-link to="/login" @click="handleLogout" class="text-white hover:text-gray-200">Log out</router-link>
         </nav>
 
-        <div class="md:hidden ml-4"> 
-          <button class="text-white">
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
+        <nav v-if="loggedIn && menuOpen"
+          class="md:hidden space-y-2 bg-slate-700 p-4 absolute w-full top-full right-0 z-10">
+          <router-link to="/"
+            class="text-white block py-2 px-4 hover:bg-slate-800 border-b border-slate-900">Home</router-link>
+          <router-link to="/"
+            class="text-white block py-2 px-4 hover:bg-slate-800 border-b border-slate-900">About</router-link>
+          <router-link to="/"
+            class="text-white block py-2 px-4 hover:bg-slate-800 border-b border-slate-900">Services</router-link>
+          <router-link to="/login" @click="handleLogout" class="text-white block py-2 px-4 hover:bg-slate-800">Log
+            out</router-link>
+        </nav>
+
+
+        <div v-if="loggedIn" class="md:hidden ml-4">
+          <button class="text-white" @click="toggleMenu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
           </button>
         </div>
@@ -43,6 +45,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      menuOpen: false
+    }
+  },
   methods: {
     handleLogout() {
       this.$store.dispatch('auth/logout');
@@ -51,6 +58,9 @@ export default {
       this.$store.dispatch('user/setLastName', '');
       this.$store.dispatch('user/setAccountType', '');
     },
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    }
   },
   computed: {
     loggedIn() {
