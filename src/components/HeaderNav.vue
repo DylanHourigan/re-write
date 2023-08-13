@@ -6,7 +6,7 @@
         <img src="../assets/logo.jpg" alt="Logo" class="h-20">
       </div>
 
-      <div class="text-4xl font-bold text-white text-center">
+      <div class="text-3xl font-bold text-white text-center">
         Re-Write
       </div>
 
