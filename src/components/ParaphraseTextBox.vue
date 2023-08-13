@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray-100 dark:bg-gray-900 min-h-screen">
+  <div class="bg-gray-100 dark:bg-gray-900 min-h-screen p-1">
     <div class="container mx-auto text-gray-900 dark:text-white">
-      <h1 class="text-4xl font-bold pt-4 mb-4">Paraphrasing Tool</h1>
-      <p class="text-lg">Welcome to our paraphrasing tool! Enter a sentence, and our machine learning model will generate
+      <h1 class="text-4xl font-bold pt-8 mb-4">Paraphrasing Tool</h1>
+      <p class="text-lg">Welcome to my paraphrasing tool! Enter a sentence, and my machine learning model will generate
         a paraphrased version of it. Try it now!</p>
     </div>
 
