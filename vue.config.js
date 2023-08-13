@@ -8,6 +8,7 @@ module.exports = defineConfig({
     resolve: {
       alias: {
         '@server': path.resolve(__dirname, 'server'),
+        '@assets': path.resolve(__dirname, 'src/assets'),
       },
     },
   },
