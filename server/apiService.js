@@ -8,9 +8,16 @@ const apiClient = axios.create({
 });
 
 export default {
-    paraphrase(data) {
+    paraphraseV1(data) {
         try {
             return apiClient.post('/V1/paraphrase/', data);
+        } catch (error) {
+            return error;
+        }
+    },
+    paraphraseV2(data) {
+        try {
+            return apiClient.post('/V2/paraphrase/', data);
         } catch (error) {
             return error;
         }

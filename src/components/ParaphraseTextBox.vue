@@ -49,7 +49,17 @@ export default {
     async paraphrase() {
       try {
         const data = { input: this.inputText };
-        const response = await apiService.paraphrase(data);
+        const modelServices = {
+          'rule-basedId': apiService.paraphraseV1,
+          'mlModelId': apiService.paraphraseV2
+        };
+
+        const modelService = modelServices[this.selectedModel];
+        if (!modelService) {
+          throw new Error('Invalid model selected');
+        }
+
+        const response = await modelService(data);
         this.paraphrasedText = response.data.paraphrase;
       } catch (error) {
         console.error(error);
