@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = defineConfig({
   transpileDependencies: true,
-  publicPath: process.env.NODE_ENV === 'production' ? '/re-write/' : '/',
+  publicPath: process.env.NODE_ENV === 'Production' ? '/re-write/' : '/',
   configureWebpack: {
     resolve: {
       alias: {
