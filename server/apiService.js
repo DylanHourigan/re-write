@@ -1,16 +1,23 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'https://re-write-api-89b7e8387487.herokuapp.com',
+    baseURL: 'http://localhost:5000',
     headers: {
         'Content-Type': 'application/json',
     },
 });
 
 export default {
-    paraphrase(data) {
+    paraphraseV1(data) {
         try {
             return apiClient.post('/V1/paraphrase/', data);
+        } catch (error) {
+            return error;
+        }
+    },
+    paraphraseV2(data) {
+        try {
+            return apiClient.post('/V2/paraphrase/', data);
         } catch (error) {
             return error;
         }
