@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomePage from "../views/Homepage.vue";
+import TrainingPage from "../views/TrainingPage.vue";
 
 const routes = [
   {
@@ -11,6 +12,11 @@ const routes = [
     name: "HomePage",
     component: HomePage,
   },
+  {
+    path: "/train",
+    name: "TrainPage",
+    component: TrainingPage,
+  },
 ];
 
 const router = createRouter({
@@ -18,6 +24,5 @@ const router = createRouter({
   base: process.env.BASE_URL,
   routes,
 });
-
 
 export default router;

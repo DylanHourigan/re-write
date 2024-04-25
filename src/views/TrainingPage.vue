@@ -1,28 +1,24 @@
 <template>
   <div class="home">
     <HeaderNav />
-    <ParaphraseTextBox />
+    <ParaphraseContainer />
     <ToggleThemeButton />
   </div>
 </template>
 
 <script>
 import HeaderNav from "@/components/HeaderNav.vue";
-import ParaphraseTextBox from "@/components/ParaphraseTextBox.vue";
+import ParaphraseContainer from "@/components/ParaphraseContainer.vue";
 import ToggleThemeButton from "@/components/ToggleThemeButton.vue";
 
 export default {
   name: "HomePage",
   components: {
-    ParaphraseTextBox,
+    ParaphraseContainer,
     HeaderNav,
     ToggleThemeButton,
   },
 };
 </script>
 
-<style>
-.home {
-  margin: 0 auto;
-}
-</style>
+<style></style>
