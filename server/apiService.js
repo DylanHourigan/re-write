@@ -31,7 +31,7 @@ export default {
   },
   storeData(data) {
     try {
-      return apiClient.post("/storeData", data);
+      return apiClient.post("/storeData/", data);
     } catch (error) {
       return error;
     }

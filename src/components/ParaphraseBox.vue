@@ -26,8 +26,8 @@ export default {
     async storeData() {
       try {
         const response = await apiService.storeData({
-          paraphrase: this.paraphrase,
-          reference: this.reference,
+          referenceText: this.reference,
+          generatedText: this.paraphrase,
         });
         console.log(response);
       } catch (error) {

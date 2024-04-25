@@ -24,7 +24,7 @@
       <span class="sr-only">Loading...</span>
     </div>
 
-    <div class="mt-4">
+    <div class="mt-4 d-flex flex-wrap">
       <ParaphraseBox v-for="(paraphrase, index) in paraphrases" :key="index" :paraphrase="paraphrase"
         :reference="this.inputText" />
     </div>
@@ -63,3 +63,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+</style>
